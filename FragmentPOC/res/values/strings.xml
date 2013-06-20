@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FragmentPOC</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="hello">Hello Debra!</string>
+    <string name="ready_to_start">Ready to start your consultation?</string>
+    
+    <string name="diagnostic">Not sure what\'s wrong?</string>
+    <string name="management">Want to manage a condition?</string>
+    <string name="search">Enter a symptom or condition</string>
+    
+    <string name="title_activity_home_fragment">HomeFragment</string>
+    <string name="title_activity_home_right_fragment">HomeRightFragment</string>
+    <string name="title_activity_topics">Topics</string>
+    
+    <string name="start_consultation">Start a New Consultation</string>
+    <string name="who">Who is this consultation for?</string>
+    <string name="me">Me</string>
+    <string name="someone_else">Someone Else</string>
+	<string name="select_consultation">Please select a consultation.</string>
+	
+</resources>
