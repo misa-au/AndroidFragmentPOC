@@ -14,6 +14,7 @@
     <string name="title_activity_home_fragment">HomeFragment</string>
     <string name="title_activity_home_right_fragment">HomeRightFragment</string>
     <string name="title_activity_topics">Topics</string>
+    <string name="title_activity_topics_fragment">Topics</string>
     <string name="start_consultation">Start a New Consultation</string>
     <string name="who">Who is this consultation for?</string>
     <string name="me">Me</string>

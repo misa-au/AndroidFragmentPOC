@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:onClick="showTopics"
         android:text="@string/management" />
 
     <Button
@@ -31,7 +30,6 @@
         android:layout_above="@+id/management"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="118dp"
-        android:onClick="showTopics"
         android:text="@string/diagnostic" />
 
 </RelativeLayout>
