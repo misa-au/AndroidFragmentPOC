@@ -34,6 +34,30 @@
             android:name="com.example.fragmentpoc.TopicsFragment"
             android:label="@string/title_activity_topics" >
         </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationFragment"
+            android:label="@string/title_activity_consultations_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationsActivity"
+            android:label="@string/title_activity_consultation" >
+        </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationHeaderFragment"
+            android:label="@string/title_activity_consultation_header_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationTabsFragment"
+            android:label="@string/title_activity_consultation_tabs_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationResultsFragment"
+            android:label="@string/title_activity_consultation_results_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationDetailsFragment"
+            android:label="@string/title_activity_consultation_details_fragment" >
+        </activity>
     </application>
 
 </manifest>

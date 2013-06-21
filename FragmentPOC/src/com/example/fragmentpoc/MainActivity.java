@@ -1,40 +1,15 @@
 package com.example.fragmentpoc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {	
-	
-	/** Called when the user clicks the Diagnostic or Management buttons */
-    public void showTopics(View view){
-    	
-    	// Create topics fragment based on which category type was picked
-    	int categoryType = view.getId() == R.id.diagnostic
-    			? 0
-    			: 1;
-    	TopicsFragment topicsFragment = new TopicsFragment();
-        Bundle args = new Bundle();
-        args.putInt(TopicsFragment.TOPIC_CATEGORY, categoryType);
-        topicsFragment.setArguments(args);
-		
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        // Replace whatever is in the fragment_container view with this fragment,
-        // and add the transaction to the back stack so the user can navigate back
-        if (findViewById(R.id.fragment_container) != null) {
-        	transaction.replace(R.id.fragment_container, topicsFragment);
-        }
-        else if (findViewById(R.id.home_right_fragment_container) != null) {
-        	transaction.replace(R.id.home_right_fragment_container, topicsFragment);
-        }
-        transaction.addToBackStack(null);
-
-        // Commit the transaction
-        transaction.commit();
-    } 
 
     /** Called when the activity is first created. */
     @Override
@@ -92,5 +67,60 @@ public class MainActivity extends FragmentActivity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(this, "Tapped home", Toast.LENGTH_SHORT).show();
+                break;
 
+            case R.id.menu_consultations:
+            	Intent myIntent = new Intent(MainActivity.this, ConsultationsActivity.class);
+            	MainActivity.this.startActivity(myIntent);
+//                Toast.makeText(this, "Tapped consultations", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.menu_profile:
+                Toast.makeText(this, "Tapped profile", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.menu_medications:
+                Toast.makeText(this, "Tapped medications", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.action_settings:
+                Toast.makeText(this, "Tapped settings", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }	
+    
+	/** Called when the user clicks the Diagnostic or Management buttons */
+    public void showTopics(View view){
+    	
+    	// Create topics fragment based on which category type was picked
+    	int categoryType = view.getId() == R.id.diagnostic
+    			? 0
+    			: 1;
+    	TopicsFragment topicsFragment = new TopicsFragment();
+        Bundle args = new Bundle();
+        args.putInt(TopicsFragment.TOPIC_CATEGORY, categoryType);
+        topicsFragment.setArguments(args);
+		
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack so the user can navigate back
+        if (findViewById(R.id.fragment_container) != null) {
+        	transaction.replace(R.id.fragment_container, topicsFragment);
+        }
+        else if (findViewById(R.id.home_right_fragment_container) != null) {
+        	transaction.replace(R.id.home_right_fragment_container, topicsFragment);
+        }
+        transaction.addToBackStack(null);
+
+        // Commit the transaction
+        transaction.commit();
+    } 
 }
