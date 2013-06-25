@@ -1,12 +1,54 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:baselineAligned="false"
-    android:orientation="horizontal"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".HomeFragment" >
 
-    <fragment android:name="com.example.fragmentpoc.HomeFragment"
-              android:id="@+id/home_fragment"
-              android:layout_weight="1"
-              android:layout_width="0dp"
-              android:layout_height="match_parent" />
-</LinearLayout>
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" />
+
+    <TextView
+        android:id="@+id/ready_to_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/hello"
+        android:layout_below="@+id/hello"
+        android:layout_marginTop="28dp"
+        android:text="@string/ready_to_start" />
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ready_to_start"
+        android:layout_marginTop="28dp"
+        android:hint="@string/search" />
+
+    <Button
+        android:id="@+id/management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:onClick="showTopics"
+        android:text="@string/management" />
+
+    <Button
+        android:id="@+id/diagnostic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/management"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="118dp"
+        android:onClick="showTopics"
+        android:text="@string/diagnostic" />
+    
+</RelativeLayout>
