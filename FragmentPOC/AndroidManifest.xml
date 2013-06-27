@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
 
     <application
-        android:name=".POCApp"
+        android:name="com.example.fragmentpoc.POCApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -62,6 +62,10 @@
         <activity
             android:name="com.example.fragmentpoc.ConsultationDetailsFragment"
             android:label="@string/title_activity_consultation_details_fragment" >
+        </activity>
+        <activity
+            android:name="com.example.fragmentpoc.ConsultationSelectedActivity"
+            android:label="@string/title_activity_consultation_selected" >
         </activity>
     </application>
 

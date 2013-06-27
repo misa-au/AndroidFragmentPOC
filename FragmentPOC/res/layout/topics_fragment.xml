@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TopicsFragment" >
-
+    
     <TextView 
         android:id="@+id/start_consultation" 
         android:layout_width="wrap_content"
@@ -21,8 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/who" 
-    	android:onClick="pickWho" />
+        android:text="@string/who"/>
     
     <TextView 
         android:id="@+id/select_consultation" 

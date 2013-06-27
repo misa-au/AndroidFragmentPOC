@@ -10,7 +10,7 @@
 		android:layout_height="0dp"
 		android:layout_width="match_parent" />
 
-	<fragment android:name="com.example.fragmentpoc.ConsultationTabFragment"
+	<fragment android:name="com.example.fragmentpoc.ConsultationTabsFragment"
 		android:id="@+id/consultation_tabs_fragment"
 		android:layout_weight="1"
 		android:layout_height="0dp"

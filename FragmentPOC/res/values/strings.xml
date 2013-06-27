@@ -27,10 +27,11 @@
     <string name="title_activity_consultation_tabs_fragment">ConsultationTabsFragment</string>
     <string name="title_activity_consultation_results_fragment">ConsultationResultsFragment</string>
     <string name="title_activity_consultation_details_fragment">ConsultationDetailsFragment</string>
-    
     <string name="title">Knee Pain</string>
-	<string name="date">June 20, 2013</string>
-	<string name="results">My Results</string>
-	<string name="physicians">Find Physicians</string>
-	<string name="summary">Summary</string>
+    <string name="date">June 20, 2013</string>
+    <string name="results">My Results</string>
+    <string name="physicians">Find Physicians</string>
+    <string name="summary">Summary</string>
+    <string name="title_activity_consultation_selected">ConsultationSelectedActivity</string>
+
 </resources>

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 public class ConsultationHeaderFragment extends Fragment {
 
@@ -15,4 +16,11 @@ public class ConsultationHeaderFragment extends Fragment {
         return inflater.inflate(R.layout.consultation_header_fragment, container, false);
     }
 
+	public void updateHeaderName(String name)
+	{
+		// update name
+	    TextView textView = (TextView) getActivity().findViewById(R.id.header_name);
+	    textView.setTextSize(20);
+	    textView.setText(name);
+	}
 }
