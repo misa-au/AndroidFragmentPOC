@@ -1,13 +1,14 @@
 package com.example.fragmentpoc;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class ConsultationHeaderFragment extends Fragment {
+import com.actionbarsherlock.app.SherlockFragment;
+
+public class ConsultationHeaderFragment extends SherlockFragment {
 
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, 

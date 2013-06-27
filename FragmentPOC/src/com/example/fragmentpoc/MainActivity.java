@@ -3,14 +3,15 @@ package com.example.fragmentpoc;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity 
+
+public class MainActivity extends SherlockFragmentActivity 
 	implements HomeFragment.OnTopicCategorySelectedListener{	
 
     /** Called when the activity is first created. */
@@ -38,7 +39,7 @@ public class MainActivity extends FragmentActivity
 		int menuID = ((POCApp) getApplicationContext()).isLargeLayout()
 				? R.menu.main_large
 				: R.menu.main;
-		getMenuInflater().inflate(menuID, menu);
+		getSupportMenuInflater().inflate(menuID, menu);
 		return true;
 	}
 	
@@ -60,10 +61,6 @@ public class MainActivity extends FragmentActivity
 
             case R.id.menu_medications:
                 Toast.makeText(this, "Tapped medications", Toast.LENGTH_SHORT).show();
-                break;
-
-            case R.id.action_settings:
-                Toast.makeText(this, "Tapped settings", Toast.LENGTH_SHORT).show();
                 break;
         }
         return super.onOptionsItemSelected(item);

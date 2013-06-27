@@ -6,6 +6,8 @@
     <string name="menu_consultations">Consultations</string>
     <string name="menu_medications">Medications</string>
     <string name="menu_profile">Profile</string>
+    <string name="menu_print">Print</string>
+    <string name="menu_email">Email</string>
     <string name="hello">Hello Debra!</string>
     <string name="ready_to_start">Ready to start your consultation?</string>
     <string name="diagnostic">Not sure what\'s wrong?</string>

@@ -1,10 +1,12 @@
 package com.example.fragmentpoc;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 
-public class TopicsActivity extends FragmentActivity {
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.MenuItem;
+
+public class TopicsActivity extends SherlockFragmentActivity {
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,19 @@ public class TopicsActivity extends FragmentActivity {
 			FragmentManager fManager = getSupportFragmentManager();
 	    	TopicsFragment topicsFragment = (TopicsFragment)fManager.findFragmentById(R.id.topics_fragment);
 	        topicsFragment.updateTopics(extras.getInt(TopicsFragment.TOPIC_CATEGORY));
+		}
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+        	case android.R.id.home:
+        		onBackPressed();
+        		return true;
+        	default:
+        		return super.onOptionsItemSelected(item);
 		}
 	}
 }

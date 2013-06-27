@@ -1,13 +1,18 @@
 package com.example.fragmentpoc;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-public class ConsultationFragment extends Fragment {
+import com.actionbarsherlock.app.SherlockFragment;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
+public class ConsultationFragment extends SherlockFragment {
     final static String CONSULTATION_NAME = "consultation_name";
     String _consultationName = null;
 
@@ -22,6 +27,8 @@ public class ConsultationFragment extends Fragment {
 	    	_consultationName = savedInstanceState.getString(CONSULTATION_NAME);
 	    }
 
+	    setHasOptionsMenu(true);
+	    
 	    // inflate the layout for this fragment
         return inflater.inflate(R.layout.consultation_fragment, container, false);
 	}
@@ -43,6 +50,34 @@ public class ConsultationFragment extends Fragment {
 	    	updateConsultation(_consultationName);
 	    }
 	}
+	
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		MenuItem print = menu.add(Menu.NONE, R.id.menu_print, 100, R.string.menu_print);
+		MenuItem email = menu.add(Menu.NONE, R.id.menu_email, 100, R.string.menu_email);
+		print.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+		email.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+	}
+	
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(getActivity(), "Tapped home", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.menu_print:
+                Toast.makeText(getActivity(), "Tapped print", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.menu_email:
+                Toast.makeText(getActivity(), "Tapped email", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
 	public void updateConsultation(String consultationName)
 	{
 		_consultationName = consultationName;
