@@ -1,26 +1,18 @@
 package com.example.fragmentpoc;
 
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.MenuItem;
 
-public class TopicsActivity extends SherlockFragmentActivity {
-    
+public class QuestionnaireActivity extends SherlockFragmentActivity {
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_topics);
+		setContentView(R.layout.activity_questionnaire);
 		
-		// get the topics fragment and update
-		Bundle extras = getIntent().getExtras();
-		if (extras != null) {
-			FragmentManager fManager = getSupportFragmentManager();
-	    	TopicsFragment topicsFragment = (TopicsFragment)fManager.findFragmentById(R.id.topics_fragment);
-	        topicsFragment.updateTopics(extras.getInt(TopicsFragment.TOPIC_CATEGORY));
-		}
-		
+		// enable back from action bar
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 	
@@ -34,4 +26,5 @@ public class TopicsActivity extends SherlockFragmentActivity {
         		return super.onOptionsItemSelected(item);
 		}
 	}
+
 }

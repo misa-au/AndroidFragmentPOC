@@ -67,6 +67,10 @@
             android:name="com.example.fragmentpoc.ConsultationSelectedActivity"
             android:label="@string/title_activity_consultation_selected" >
         </activity>
+        <activity
+            android:name="com.example.fragmentpoc.QuestionnaireActivity"
+            android:label="@string/title_activity_questionnaire" >
+        </activity>
     </application>
 
 </manifest>

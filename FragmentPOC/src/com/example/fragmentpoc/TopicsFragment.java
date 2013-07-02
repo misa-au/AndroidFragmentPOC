@@ -1,11 +1,18 @@
 package com.example.fragmentpoc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class TopicsFragment extends Fragment {
     final static String TOPIC_CATEGORY = "category";
@@ -53,6 +60,40 @@ public class TopicsFragment extends Fragment {
 	    textView.setText(_categoryType == 0 
 	    	? "Diagnostic" 
 	    	: "Management");
+	    
+
+		// Get ListView object from xml
+		final ListView listView = (ListView) getActivity().findViewById(R.id.topics_list_view);
+        
+        // Defined Array values to show in ListView
+        String[] values = new String[] { "Knee Pain", 
+                                         "Current Problem History",
+                                         "Diabetes Management"
+                                        };
+
+        // Define a new Adapter
+        // First parameter - Context
+        // Second parameter - Layout for the row
+        // Third parameter - ID of the TextView to which the data is written
+        // Forth - the Array of data
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+        	R.layout.topic_cell, R.id.topic_title, values);
+
+        // Assign adapter to ListView
+        listView.setAdapter(adapter); 
+
+        // ListView Item Click Listener
+        listView.setOnItemClickListener(new OnItemClickListener() {
+
+        	@Override
+        	public void onItemClick(AdapterView<?> parent, View view, 
+        		int position, long id) 
+        	{
+        		// start a new activity
+         		Intent myIntent = new Intent(getActivity(), QuestionnaireActivity.class);
+         		getActivity().startActivity(myIntent);
+        	}
+        });
 	}
 
 	@Override

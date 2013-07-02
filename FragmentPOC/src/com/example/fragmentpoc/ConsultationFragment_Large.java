@@ -14,7 +14,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public class ConsultationFragment extends SherlockFragment 
+public class ConsultationFragment_Large extends SherlockFragment 
 	implements ConsultationTabsFragment.OnSubTabSelectedListener{
     final static String CONSULTATION_NAME = "consultation_name";
     String _consultationName = null;
@@ -30,6 +30,8 @@ public class ConsultationFragment extends SherlockFragment
 	    if (savedInstanceState != null) {
 	    	_consultationName = savedInstanceState.getString(CONSULTATION_NAME);
 	    }
+
+	    setHasOptionsMenu(true);
 	    
 	    // inflate the layout for this fragment
 	    return inflater.inflate(R.layout.consultation_fragment, container, false);
@@ -38,13 +40,6 @@ public class ConsultationFragment extends SherlockFragment
 	@Override
 	public void onStart() {
 	    super.onStart();
-
-
-	    setHasOptionsMenu(true);
-	    
-	    ConsultationTabsFragment tabs = (ConsultationTabsFragment) 
-	    			getFragmentManager().findFragmentById(R.id.consultation_tabs_fragment);
-	    tabs.onSubTabSelectedListener = this;
 	    
 	    // During startup, check if there are arguments passed to the fragment.
 	    // onStart is a good place to do this because the layout has already been
@@ -96,8 +91,47 @@ public class ConsultationFragment extends SherlockFragment
 		}
 		// tell header fragment to update contents
 		FragmentManager fManager = getFragmentManager();
-    	ConsultationHeaderFragment headerFragment = (ConsultationHeaderFragment)fManager.findFragmentById(R.id.consultation_header_fragment);
-    	headerFragment.updateHeaderName(consultationName);
+
+	    	ConsultationHeaderFragment headerFragment = (ConsultationHeaderFragment)fManager.findFragmentByTag("Header");
+	    	boolean fragmentIsNull = headerFragment == null;
+	    	if (fragmentIsNull)
+	    	{
+	    		headerFragment = new ConsultationHeaderFragment();
+	            Bundle args = new Bundle();
+	            args.putString(ConsultationHeaderFragment.HEADER_NAME, _consultationName);
+	            headerFragment.setArguments(args);
+	    	}
+	    	else
+	    	{
+	    		headerFragment.updateHeaderName(consultationName);
+	    	}
+
+	        // add the transaction to the back stack so the user can navigate back
+	    	FragmentTransaction transaction = getFragmentManager().beginTransaction();
+	    	if (fragmentIsNull)
+	    	{
+	    		transaction.replace(R.id.consultation_header_fragment_container, headerFragment, "Header");
+	    		transaction.addToBackStack(null);
+	    	}
+	    	
+	    	// add tabs fragment if necessary
+	    	ConsultationTabsFragment tabsFragment = (ConsultationTabsFragment)fManager.findFragmentByTag("Tabs");
+	    	if (tabsFragment == null)
+	    	{
+	    		tabsFragment = new ConsultationTabsFragment();
+	    		tabsFragment.onSubTabSelectedListener = this;
+	    		transaction.replace(R.id.consultation_tabs_fragment_container, tabsFragment, "Tabs");
+	    		transaction.addToBackStack(null);
+	    	}
+	    	// or reset
+	    	else
+	    	{
+	    		tabsFragment.resetTabs();
+	    		_tabContentFragment = null;
+	    	}
+
+        	// commit the transaction
+        	transaction.commit();
 	}
 
 	@Override

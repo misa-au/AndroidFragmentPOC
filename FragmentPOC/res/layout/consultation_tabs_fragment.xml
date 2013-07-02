@@ -9,7 +9,6 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:onClick="showResults"
         android:text="@string/results" />
 
     <Button
@@ -17,7 +16,6 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:onClick="showPhysicians"
         android:text="@string/physicians" />
 
     <Button
@@ -25,7 +23,6 @@
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:onClick="showSummary"
         android:text="@string/summary" />
 
 </LinearLayout>

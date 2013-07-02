@@ -17,7 +17,7 @@
 		android:layout_width="match_parent" />
 
 	<FrameLayout 
-		android:id="@+id/consultation_tab_content_fragment"
+		android:id="@+id/consultation_tab_content_container"
 		android:layout_weight="4"
 		android:layout_height="0dp"
 		android:layout_width="match_parent" />
